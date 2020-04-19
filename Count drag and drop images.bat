@@ -19,14 +19,14 @@ rem Pointアイテムの名前
 rem (ドロップしないクエストではなんでも可)
 set point_item_name=ポイント
 
-rem pythonのパス
+rem python.exeのパス
 set python="D:\_programs\Python\python.exe"
 
 rem fgosccnt.pyのパス
 set fgosccnt="D:\_programs\fgosccnt\fgosccnt.py"
 
 rem csv2counter.pyのパス
-set csv2counter=D:\_programs\fgosccnt\csv2counter.py
+set csv2counter="D:\_programs\fgosccnt\csv2counter.py"
  
 set yyyy=%date:~0,4%
 set mm=%date:~5,2%
@@ -37,7 +37,7 @@ set mn=%time2:~3,2%
 set ss=%time2:~6,2%
 set time=%yyyy%_%mm%_%dd%_%hh%_%mn%_%ss%
 
-rem 結果のcsvファイルのパス
+rem 出力csvファイルのパス
 set table_file_name=O:\_workspace\FGO_Count\csv\output%time%.csv
 
 rem #FGO周回カウンタ形式の報告ファイルのパス

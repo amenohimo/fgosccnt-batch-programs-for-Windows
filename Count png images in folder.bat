@@ -16,7 +16,7 @@ rem+--------------------------------------------------+
 rem ポイントアイテムの名前
 set point_file_name=ポイント
 
-rem pythonのパス
+rem python.exeのパス
 set python="D:\_programs\Python\python.exe"
 
 rem fgosccnt.pyのパス
