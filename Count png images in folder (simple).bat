@@ -12,7 +12,7 @@ rem
 rem                                           @ame54
 rem+--------------------------------------------------+
 
-for %%i in (*.png) do call :tmp %%i
+for /F "usebackq" %%i in (`dir *.png *.jpg *.jpeg /o:-n /b`) do call :tmp %%i
 "D:\_programs\Python\python.exe" "D:\_programs\fgosccnt\fgosccnt.py" %arg%>output.csv
 "D:\_programs\Python\python.exe" "D:\_programs\fgosccnt\csv2counter.py" --point ƒ|ƒCƒ“ƒg output.csv>output.txt
 pause
