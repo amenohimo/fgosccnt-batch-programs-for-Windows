@@ -14,7 +14,7 @@ rem                                           @ame54
 rem+--------------------------------------------------+
 
 rem ポイントアイテムの名前
-set point_file_name=ポイント
+set point_item_name=ポイント
 
 rem python.exeのパス
 set python="D:\_programs\Python\python.exe"
@@ -44,7 +44,7 @@ echo カウント処理を開始します [%yyyy%/%mm%/%dd%_%hh%:%mn%:%ss%]
 for %%i in (*.png) do call :tmp %%i
 @echo on
 %python% %fgosccnt% %arg%>%table_file_name%
-%python% %csv2counter% --point %point_file_name% %table_file_name%>%report_file_name%
+%python% %csv2counter% --point %point_item_name% %table_file_name%>%report_file_name%
 %table_file_name%
 %report_file_name%
 del /p %table_file_name%
