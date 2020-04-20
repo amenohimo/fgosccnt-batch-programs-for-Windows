@@ -41,7 +41,7 @@ rem #FGO周回カウンタ形式の報告ファイルのパス
 set report_file_name=report%time%.txt
 
 echo カウント処理を開始します [%yyyy%/%mm%/%dd%_%hh%:%mn%:%ss%]
-for %%i in (*.png) do call :tmp %%i
+for /F "usebackq" %%i in (`dir *.png *.jpg *.jpeg /o:-n /b`) do call :tmp %%i
 @echo on
 %python% %fgosccnt% %arg%>%table_file_name%
 %python% %csv2counter% --point %point_item_name% %table_file_name%>%report_file_name%
