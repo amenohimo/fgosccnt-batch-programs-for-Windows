@@ -17,7 +17,7 @@
 4. `Count images in folder (simple).bat`:ダブルクリックで`fgosccnt.py` `csv2counter.py`を実行する (最小限のスクリプト)
 
 # インストール
-1. `Count images in folder.bat` `Count images in folder.bat` を右クリックし編集をクリックして、以下の項目のパスを設定する
+1. `Count drag and drop images.bat` `Count images in folder.bat` を右クリックし編集をクリックして、以下の項目のパスを設定する
 ```
 set python=
 set fgosccnt=
@@ -29,7 +29,7 @@ set report_file_name=
 # 使い方
 
 ## ドラッグアンドドロップの場合
-1. `Count images in folder.bat` をデスクトップなどドロップしやすい場所に、batファイルを置くかショートカットを作成する
+1. `Count drag and drop images.bat` をデスクトップなどドロップしやすい場所に、batファイルを置くかショートカットを作成する
 2. FGOの報酬画像をbatファイルかショートカットのアイコンにドラッグアンドドロップする
 
 ## ダブルクリックの場合
