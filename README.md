@@ -47,5 +47,5 @@ WindowsXP以降の場合、cmd.exeのコマンドバッファの最長数は8,19
 
 この制約により処理ができない場合は、ディレクトリをパス長の短い位置に移動したり、画像ファイルの数を減らして試してください
 
-* `Count png images in folder.bat`の対応拡張子はPNGのみ
+* `Count png images in folder.bat`の対応拡張子はPNG/JPEGのみ
 * その他は [fgosccnt の制限](https://github.com/fgophi/fgosccnt/blob/master/README.md) に準拠します
