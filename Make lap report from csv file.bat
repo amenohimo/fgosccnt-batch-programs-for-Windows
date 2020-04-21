@@ -1,19 +1,19 @@
 @echo off
 rem+--------------------------------------------------+
-rem csv2counter D&D                     ì¬:2020/4/20
-rem fgosccnt.py‚Ìo—ÍCSV‚ğ‚ğƒhƒ‰ƒbƒOƒAƒ“ƒhƒhƒƒbƒv‚·‚é
-rem ‚·‚é‚ÆAFGOü‰ñƒJƒEƒ“ƒ^Œ`®‚ÌŒ‹‰Ê‚ğƒRƒ}ƒ“ƒhƒvƒƒ“
-rem ƒvƒg‚Éo—Í‚µ‚Ü‚·
+rem csv2counter D&D                     ä½œæˆ:2020/4/20
+rem fgosccnt.pyã®å‡ºåŠ›CSVã‚’ãƒ‰ãƒ©ãƒƒã‚°ã‚¢ãƒ³ãƒ‰ãƒ‰ãƒ­ãƒƒãƒ—ã™ã‚‹
+rem ã™ã‚‹ã¨ã€FGOå‘¨å›ã‚«ã‚¦ãƒ³ã‚¿å½¢å¼ã®çµæœã‚’ã‚³ãƒãƒ³ãƒ‰ãƒ—ãƒ­ãƒ³
+rem ãƒ—ãƒˆã«å‡ºåŠ›ã—ã¾ã™
 rem
-rem PointƒAƒCƒeƒ€–¼‚âƒpƒX‚ğA‚»‚ê‚¼‚ê‚ÌŠÂ‹«‚É‡‚í‚¹‚Ä
-rem ‘‚«Š·‚¦‚Ä‚²—˜—p‚­‚¾‚³‚¢
+rem Pointã‚¢ã‚¤ãƒ†ãƒ åã‚„ãƒ‘ã‚¹ã‚’ã€ãã‚Œãã‚Œã®ç’°å¢ƒã«åˆã‚ã›ã¦
+rem æ›¸ãæ›ãˆã¦ã”åˆ©ç”¨ãã ã•ã„
 rem                                           @ame54
 rem+--------------------------------------------------+
 
-rem ƒ|ƒCƒ“ƒgƒAƒCƒeƒ€‚Ì–¼‘O
-set point_item_name=ƒ|ƒCƒ“ƒg
+rem ãƒã‚¤ãƒ³ãƒˆã‚¢ã‚¤ãƒ†ãƒ ã®åå‰
+set point_item_name=ãƒã‚¤ãƒ³ãƒˆ
 
-rem csv2counter.py ‚ÌƒpƒX
+rem csv2counter.py ã®ãƒ‘ã‚¹
 set csv2counter=D:\_programs\fgosccnt\csv2counter.py
 
 for %%i in (%*) do (
