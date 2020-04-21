@@ -1,6 +1,6 @@
-@echo off
+﻿@echo off
 rem+--------------------------------------------------+
-rem csv2counter D&D                     作成:2020/4/20
+rem csv2counter D&D                     作成:2020/4/21
 rem fgosccnt.pyの出力CSVをドラッグアンドドロップする
 rem と、FGO周回カウンタ形式の結果をコマンドプロンプト
 rem に出力します
