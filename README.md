@@ -17,7 +17,9 @@
 4. `Count images in folder (simple).bat`:ダブルクリックで`fgosccnt.py` `csv2counter.py`を実行する (最小限のスクリプト)
 
 # インストール
-1. `Count drag and drop images.bat` `Count images in folder.bat` を右クリックし編集をクリックして、以下の項目のパスを設定する
+
+## Count drag and drop images.bat
+`Count drag and drop images.bat` `Count images in folder.bat` を右クリックし編集をクリックして、以下の項目のパスを設定する
 ```
 set python=
 set fgosccnt=
@@ -25,16 +27,36 @@ set csv2counter=
 set table_file_name=
 set report_file_name=
 ```
+## Count images in folder.bat
+`Count drag and drop images.bat` `Count images in folder.bat` を右クリックし編集をクリックして、以下の項目のパスを設定する
+```
+set python=
+set fgosccnt=
+set csv2counter=
+set table_file_name=
+set report_file_name=
+```
+## Make lap report from csv file.bat
+`Make lap report from csv file.bat`  を右クリックし編集をクリックして、以下の項目のパスを設定する
+```
+set point_item_name=
+set csv2counter=
+```
 
 # 使い方
 
-## ドラッグアンドドロップの場合
+## 画像をカウントする
+### ドラッグアンドドロップの場合
 1. `Count drag and drop images.bat` をデスクトップなどドロップしやすい場所に、batファイルを置くかショートカットを作成する
-2. FGOの報酬画像をbatファイルかショートカットのアイコンにドラッグアンドドロップする
+2. FGOの報酬画像ファイルをbatファイルかショートカットのアイコンにドラッグアンドドロップする
 
-## ダブルクリックの場合
-1. FGOの報酬画像が含まれるフォルダに`Count images in folder.bat`を移動するかコピーする
-3. `Count images in folder.bat`をダブルクリックする
+### ダブルクリックの場合
+1. FGOの報酬画像ファイルが含まれるフォルダに`Count images in folder.bat`を移動するかコピーする
+2. `Count images in folder.bat`をダブルクリックする
+
+## FGO周回カウンタ形式の結果を出力する
+1. `Make lap report from csv file.bat` をデスクトップなどドロップしやすい場所に、batファイルを置くかショートカットを作成する
+2. fgosccnt.pyの出力したCSVファイルをbatファイルかショートカットのアイコンにドラッグアンドドロップする
 
 # 制限
 
