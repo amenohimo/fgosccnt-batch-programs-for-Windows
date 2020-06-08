@@ -73,6 +73,9 @@ WindowsXP以降の場合、cmd.exeのコマンドバッファの最長数は8,19
 [--folder オプションの追加](https://github.com/fgophi/fgosccnt/commit/ff269e6f4268f11eee667bfe1d62f63e6f6976b3#diff-eee32438348d5e323def03b19e2e331e) で対応されました
 
 コマンドオプションに `-f` とディレクトリパスを追加することで、ディレクトリ内のファイルを読み取ることができます
+`%python% %fgosccnt% %* > %table_file_name%` の行の `%*` の前に `-f` を追加して、<br>
+`%python% %fgosccnt% -f %* > %table_file_name%`  とすると、ドラッグアンドドロップしたフォルダ中の画像を処理します
+
 
 この処理は、ディレクトリ内のファイルを列挙し、Pythonのリストに追加することで実現されており、実用上画像の上限数はなくりました
 
