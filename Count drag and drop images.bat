@@ -1,33 +1,96 @@
 @echo off
-rem+-------------------------------------------------+
-rem fgosccnt D&D                      作成:2020/4/20
-rem
-rem リザルト画面をドラッグアンドドロップすると 、
-rem fgosccntでテーブルとレポートを作成、表示し
-rem 作成したファイルを削除するか確認を出すバッチです
-rem
-rem ファイル名は時刻で作成します
-rem 同時起動が可能です
-rem ショートカットを作って使用可能です
-rem
-rem Pointアイテム名や各種パスを、それぞれの
-rem 環境に合わせて書き換えてご利用ください
-rem                                           @ame54
-rem+--------------------------------------------------+
+REM+--------------------------------------------------------------------------+
+REM fgosccnt drag and execute
+REM
+REM This batch file allows you to run fgosccnt on Windows in either of the
+REM following ways:
+REM  -Drag and drop to this batch file.
+REM  -Send to this batch with "Send to" in the right-click menu of Explorer.
+REM
+REM In Windows 10, "Send to" is the following location:
+REM C:\Users\[username]\AppData\Roaming\Microsoft\Windows\SendTo
+REM
+REM ! CAUTION !
+REM If you are using a Japanese Windows environment, 
+REM change the encoding of this batch file to "Shift JIS"
+REM and the line feed code to "CRLF".
+REM Otherwise this code won't work.
+REM
+REM                                                                    @ame54
+REM+--------------------------------------------------------------------------+
 
-rem Pointアイテムの名前
-rem (ドロップしないクエストではなんでも可)
-set point_item_name=ポイント
+REM
+REM ARGUMENTS
+REM
 
-rem python.exeのパス
-set python="D:\_programs\Python\python.exe"
+REM Choice of reading files or folders
+REM
+REM Use the following either options when dragging and dropping the folder
+REM containing the screenshot images of the FGO result screen.
+REM set args=-f
+REM set args=--folder
+REM
+REM Or, if you want to drag and drop multiple result screens directly, you
+REM  don't need to specify the options as shown below.
+REM set args=
+set arg=--folder
 
-rem fgosccnt.pyのパス
-set fgosccnt="D:\_programs\fgosccnt\fgosccnt.py"
+REM Other Arguments
+REM
+REM Below are other options.
+REM Options marked with * are the default.
+REM It is used even if it is not specified.
+REM
+REM --ordering notspecified *
+REM --ordering filename
+REM --ordering timestamp
+REM --loglevel info *
+REM --loglevel debug
+REM --lang jpn *
+REM --lang eng
+REM --timeout 15*
+REM
+REM example:
+REM set args=--timeout 35 --lang eng --loglevel debug --ordering filename
+set args=--timeout 35
 
-rem csv2counter.pyのパス
-set csv2counter="D:\_programs\fgosccnt\csv2counter.py"
- 
+REM
+REM CONSTANT
+REM Please change according to each environment.
+REM
+
+REM Event-specific point item name
+REM If it doesn't drop, you can make any settings.
+set point_item_name=point
+
+REM fgosccnt.py path
+set python="C:\Users\ameno\scoop\apps\python\3.9.6\python.exe"
+
+REM fgosccnt.py縺ｮ繝代せ
+set fgosccnt="C:\Users\ameno\fgosccnt\fgosccnt.py"
+
+REM csv2counter.py縺ｮ繝代せ
+set csv2counter="C:\Users\ameno\fgosccnt\csv2counter.py"
+
+REM table csv file name
+set table_name=sccnt
+
+REM report text file name
+set report_name=report
+
+REM table csv dir
+set table_dir="C:\Users\ameno\Documents\FGO\csv"
+
+REM report text dir
+set report_dir="C:\Users\ameno\Documents\FGO\report"
+
+
+REM
+REM TIME
+REM Create character strings from the current time to be used as :
+REM -a part of the output file name 
+REM -display the time at the start of processing 
+REM
 set yyyy=%date:~0,4%
 set mm=%date:~5,2%
 set dd=%date:~8,2%
@@ -35,19 +98,39 @@ set time2=%time: =0%
 set hh=%time2:~0,2%
 set mn=%time2:~3,2%
 set ss=%time2:~6,2%
-set time=%yyyy%_%mm%_%dd%_%hh%_%mn%_%ss%
 
-rem 出力csvファイルのパス
-set table_file_name=O:\_workspace\FGO_Count\csv\output%time%.csv
+REM A part of the output file name 
+REM By setting, you can leave multiple result files without overwriting.
+REM You can change it to your liking.
+set day_time=%yyyy%-%mm%_%dd%-%hh%_%mn%_%ss%
 
-rem #FGO周回カウンタ形式の報告ファイルのパス
-set report_file_name=O:\_workspace\FGO_Count\report\report%time%.txt
+REM Time to display as processing start time
+set start_time=%hh%:%mn%:%ss%
 
-echo カウント処理を開始します [%yyyy%/%mm%/%dd%_%hh%:%mn%:%ss%]
+
+REM Path of output table csv file 
+set table=%table_dir%%table_name%%day_time%.csv
+
+REM The path of the text file that describes the report 
+REM in the #FGO_Shukai_Counter format to be output
+set report=%report_dir%%report_name%%day_time%.txt
+
+
+REM
+REM PROCESSING
+REM
+echo Start counting [%date% %start_time%]
 @echo on
-%python% %fgosccnt% %* > %table_file_name%
-%python% %csv2counter% --point %point_item_name% %table_file_name% > %report_file_name%
-%table_file_name%
-%report_file_name%
-del /p %table_file_name%
-del /p %report_file_name%
+%python% %fgosccnt% %arg% %* %args% > %table%
+%python% %csv2counter% --point %point_item_name% %table%>%report%
+
+@REM View table and report
+@REM Comment out or delete if you don't need it.
+%table%
+%report%
+
+@REM Ask if you want to delete the created csv or text file.
+del /p %table%
+del /p %report%
+
+pause
